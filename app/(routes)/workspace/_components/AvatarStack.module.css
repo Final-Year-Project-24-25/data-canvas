@@ -1,0 +1,61 @@
+.avatarStack {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  overflow: visible; /* Ensure tooltip isn’t clipped */
+  border: 2px solid #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.avatarInitials {
+  font-size: 14px;
+}
+
+.avatarTooltip {
+  visibility: hidden;
+  width: max-content;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 100; /* Ensure it appears above other elements */
+  top: 100%; /* Position below the avatar */
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 4px; /* Small gap between avatar and tooltip */
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none; /* Prevents tooltip from interfering with hover */
+}
+
+.avatar:hover .avatarTooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #ccc;
+  color: #000;
+  font-size: 12px;
+  font-weight: bold;
+}

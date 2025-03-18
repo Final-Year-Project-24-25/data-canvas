@@ -8,6 +8,8 @@ import {
 } from "@liveblocks/react/suspense";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "@/config/firebaseConfig";
+import { Loader2Icon } from "lucide-react";
+
 
 export function Room({ children,params }) {
   return (
@@ -47,7 +49,11 @@ export function Room({ children,params }) {
     }}
     >
       <RoomProvider id={params?.documentid?params?.documentid:'1'}>
-        <ClientSideSuspense fallback={<div>Loading…</div>}>
+        <ClientSideSuspense fallback={
+          <div className="flex justify-center items-center min-h-screen">
+            <Loader2Icon className="animate-spin"/>
+          </div>
+          }>
           {children}
         </ClientSideSuspense>
       </RoomProvider>
